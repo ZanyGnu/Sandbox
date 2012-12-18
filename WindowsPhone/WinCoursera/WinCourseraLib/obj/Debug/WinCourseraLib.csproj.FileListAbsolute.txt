@@ -1,0 +1,4 @@
+C:\Users\amani\Desktop\Sandbox\WindowsPhone\WinCoursera\WinCourseraLib\Bin\Debug\CourseraLib.dll
+C:\Users\amani\Desktop\Sandbox\WindowsPhone\WinCoursera\WinCourseraLib\Bin\Debug\CourseraLib.pdb
+C:\Users\amani\Desktop\Sandbox\WindowsPhone\WinCoursera\WinCourseraLib\obj\Debug\CourseraLib.dll
+C:\Users\amani\Desktop\Sandbox\WindowsPhone\WinCoursera\WinCourseraLib\obj\Debug\CourseraLib.pdb

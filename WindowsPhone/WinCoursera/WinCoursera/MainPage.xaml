@@ -1,0 +1,150 @@
+<!-- 
+    Copyright (c) 2011 Microsoft Corporation.  All rights reserved.
+    Use of this sample source code is subject to the terms of the Microsoft license 
+    agreement under which you licensed this sample source code and is provided AS-IS.
+    If you did not accept the terms of the license agreement, you are not authorized 
+    to use this sample source code.  For the terms of the license, please see the 
+    license agreement between you and Microsoft.
+    
+    To see all Code Samples for Windows Phone, visit http://go.microsoft.com/fwlink/?LinkID=219604
+-->
+<phone:PhoneApplicationPage 
+    x:Class="WinCoursera.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+
+    xmlns:MyApp="clr-namespace:WinCoursera"
+    
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--<phone:PhoneApplicationPage.Resources>
+
+        <DataTemplate x:Key="AccountTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding Path=Name, Mode=OneWay}" />
+                <TextBlock Grid.Column="1" Text=" account: " />
+                <TextBlock Grid.Column="2" Text="{Binding Path=Kind, Mode=OneWay}" />
+            </Grid>
+        </DataTemplate>
+
+        <MyApp:CoursePictureConverter x:Key="CoursePictureConverter" />
+
+    </phone:PhoneApplicationPage.Resources>-->
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <!--Pivot Control-->
+        <controls:Pivot Title="Coursera">
+
+            <!--Pivot item one-->
+            <controls:PivotItem Header="courses">
+                <StackPanel Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBox Grid.Row="0" Grid.ColumnSpan="1" Name="CourseFilterString" />
+                        <Button Grid.Row="0" Grid.Column="1" Content="search" Click="SearchCourses_Click" />
+                    </Grid>
+
+                    <TextBlock Name="CourseResultsLabel" Text="" TextWrapping="Wrap" Margin="0,0,0,0" />
+
+                    <ListBox Name="CourseResultsData" ItemsSource="{Binding}" Tap="CourseResultsData_Tap" Height="500" Margin="24,0,0,0" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Border BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="{StaticResource PhoneAccentBrush}" >
+                                        <!-- <Image Source="{Binding Converter={StaticResource CoursePictureConverter}}" Width="48" Height="48" Stretch="Fill"  /> -->
+                                        <Image Source="{Binding Path=large_icon}" Width="54" Height="54" Stretch="Fill"  />
+                                    </Border>
+                                    <TextBlock Name="CourseResults" Text="{Binding Path=name, Mode=OneWay}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="18,8,0,0" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </controls:PivotItem>
+
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="universities">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" >
+
+                        <TextBlock Text="Course accounts" Foreground="{StaticResource PhoneAccentBrush}" Style="{StaticResource PhoneTextLargeStyle}" />
+                        
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" >
+
+                        <TextBlock Text="appointment accounts" Foreground="{StaticResource PhoneAccentBrush}" Style="{StaticResource PhoneTextLargeStyle}" />
+                        
+                    </StackPanel>
+                </Grid>
+            </controls:PivotItem>
+
+
+            <!--Pivot item three-->
+            <controls:PivotItem Header="appointments">
+                <StackPanel Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+
+                    <TextBlock Text="appointments between" Foreground="{StaticResource PhoneAccentBrush}" />
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="start date" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="end date" />
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="placeholder" Name="StartDate" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="placeholder" Name="EndDate" />
+                        <!--<Button Grid.Row="2" Grid.ColumnSpan="2" Content="search" Click="SearchAppointments_Click" HorizontalAlignment="Center" />-->
+                    </Grid>
+
+                    <TextBlock Name="AppointmentResultsLabel" Text="search for appointments" TextWrapping="Wrap" />
+
+                    <ListBox Name="AppointmentResultsData" ItemsSource="{Binding}" Height="400"  ScrollViewer.ManipulationMode="Control" Margin="24,0,0,0" >
+
+                    </ListBox>
+                </StackPanel>
+            </controls:PivotItem>
+
+        </controls:Pivot>
+    </Grid>
+</phone:PhoneApplicationPage>

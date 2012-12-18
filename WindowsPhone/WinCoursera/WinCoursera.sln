@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinCoursera", "WinCoursera\WinCoursera.csproj", "{C19DEA5D-FFCD-420A-A84F-841007536DD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinCourseraLib", "WinCourseraLib\WinCourseraLib.csproj", "{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://ajaymartin.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = WinCoursera\\WinCoursera.csproj
+		SccProjectName1 = WinCoursera
+		SccLocalPath1 = WinCoursera
+		SccProjectUniqueName2 = WinCourseraLib\\WinCourseraLib.csproj
+		SccProjectName2 = WinCourseraLib
+		SccLocalPath2 = WinCourseraLib
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Debug|ARM.ActiveCfg = Debug|ARM
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Debug|ARM.Build.0 = Debug|ARM
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Debug|ARM.Deploy.0 = Debug|ARM
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Debug|x86.ActiveCfg = Debug|x86
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Debug|x86.Build.0 = Debug|x86
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Debug|x86.Deploy.0 = Debug|x86
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Release|ARM.ActiveCfg = Release|ARM
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Release|ARM.Build.0 = Release|ARM
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Release|ARM.Deploy.0 = Release|ARM
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Release|x86.ActiveCfg = Release|x86
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Release|x86.Build.0 = Release|x86
+		{C19DEA5D-FFCD-420A-A84F-841007536DD3}.Release|x86.Deploy.0 = Release|x86
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Debug|ARM.Build.0 = Debug|ARM
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Debug|x86.ActiveCfg = Debug|x86
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Debug|x86.Build.0 = Debug|x86
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Release|ARM.ActiveCfg = Release|ARM
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Release|ARM.Build.0 = Release|ARM
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Release|x86.ActiveCfg = Release|x86
+		{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
