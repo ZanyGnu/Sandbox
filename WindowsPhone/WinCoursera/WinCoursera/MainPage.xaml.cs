@@ -73,7 +73,6 @@ namespace WinCoursera
             {
                 string results = httpwebStreamReader.ReadToEnd();
                 Dispatcher.BeginInvoke(() => CourseResultsData.DataContext = RenderJsonResults(results));
-                CourseResultsLabel.Text = "";
             }
             myResponse.Close();
         }
