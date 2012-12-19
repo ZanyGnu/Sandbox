@@ -10,19 +10,7 @@ namespace CourseraLib
     public class CourseraAPIHandler
     {
         public delegate void HandleResults<T>(T courses);
-
-        private static class ApiEndpoints
-        {
-            public static readonly string CourseList = "https://www.coursera.org/maestro/api/topic/list?full=1";
-            public static readonly string CourseInfo = "https://www.coursera.org/maestro/api/topic/information?topic-id=";
-
-        }
-        private class RequestHandler<T>
-        {
-            public HttpWebRequest Request;
-            public HandleResults<T> HandleResults;
-        }
-
+        
         public static void GetAllCoursesAsync<T>(HandleResults<T> handleResults) where T : class, new()
         {
             InvokeApiAsync<T>(handleResults, ApiEndpoints.CourseList);
@@ -56,32 +44,7 @@ namespace CourseraLib
 
             myResponse.Close();
         }
-
-        //private static List<CourseDetails> SerializeJsonResults(string resultJson)
-        //{
-        //    List<CourseDetails> obj = new List<CourseDetails>();
-        //    MemoryStream readStream = new MemoryStream();                    
-        //    DataContractJsonSerializer readSer = new DataContractJsonSerializer(obj.GetType()); 
-        //    byte[] byteRead;
-
-        //    // Convert string read into byte array.
-        //    byteRead = System.Text.Encoding.UTF8.GetBytes(resultJson);
-
-        //    // Write the byte array to the stream.
-        //    readStream.Position = 0;
-
-        //    readStream.Write(byteRead, 0, byteRead.Length);
-
-        //    obj = (List<CourseDetails>)readSer.ReadObject(readStream);
-
-        //    if (obj != null)
-        //    {
-        //        return obj;
-        //    }
-
-        //    return null;
-        //}
-
+        
         private static T SerializeJsonResults<T>(string resultJson) where T: class, new()
         {
             T obj = new T();
@@ -105,6 +68,12 @@ namespace CourseraLib
             }
 
             return default(T);
+        }
+        
+        private class RequestHandler<T>
+        {
+            public HttpWebRequest Request;
+            public HandleResults<T> HandleResults;
         }
     }
 }

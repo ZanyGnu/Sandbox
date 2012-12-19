@@ -18,7 +18,7 @@ namespace WinCoursera
 
         private void SearchCourses_Click(object sender, RoutedEventArgs e)
         {
-            CourseResultsLabel.Text = "results are loading...";
+            CourseResultsLabel.Text = " loading results ...";
             CourseResultsData.DataContext = null;
 
             CourseraAPIHandler.GetAllCoursesAsync(
@@ -34,12 +34,12 @@ namespace WinCoursera
 
         private void CourseResultsData_Tap(object sender, GestureEventArgs e)
         {
-            App.Course = ((sender as ListBox).SelectedValue as CourseDetails);
+            CourseDetails course = ((sender as ListBox).SelectedValue as CourseDetails);
 
             NavigationService.Navigate(
                 new Uri(String.Format(
                     "/CourseDetailsPage.xaml?topic-id={0}", 
-                    App.Course.id), 
+                    course.short_name), 
                 UriKind.Relative));
         }
     }

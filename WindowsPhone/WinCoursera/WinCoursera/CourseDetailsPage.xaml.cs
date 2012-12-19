@@ -15,14 +15,18 @@ namespace WinCoursera
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            string course_id;
+            string courseId;
 
-            if (this.NavigationContext.QueryString.TryGetValue("topic-id", out course_id))
+            if (this.NavigationContext.QueryString.TryGetValue("topic-id", out courseId))
             {
-
+                CourseraAPIHandler.GetCourseInfoAsync(
+                    delegate(CourseDetails details)
+                    {
+                        this.Dispatcher.BeginInvoke(() =>  this.DataContext = details);
+                    },
+                    courseId);
             }
 
-            this.DataContext = App.Course;
             base.OnNavigatedTo(e);            
         }
     }

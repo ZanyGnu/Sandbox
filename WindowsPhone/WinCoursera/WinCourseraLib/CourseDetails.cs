@@ -20,5 +20,11 @@ namespace CourseraLib
 
         [DataMember]
         public string instructor { get; set; }
+
+        [DataMember]
+        public string short_name { get; set; }
+
+        [DataMember]
+        public string about_the_course { get; set; }
     }
 }

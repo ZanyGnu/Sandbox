@@ -32,93 +32,27 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,0">
-            <TextBlock x:Name="ApplicationTitle" Text="Coursera" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="course details" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="ApplicationTitle" Text="course details" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="{Binding Path=name, Mode=OneWay}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
-
         <!--ContentPanel - place additional content here-->
-        <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
-            <TextBlock Text="{Binding Path=Name, Mode=OneWay}" Foreground="{StaticResource PhoneAccentBrush}" FontSize="{StaticResource PhoneFontSizeExtraLarge}" />
-
-            <Border BorderThickness="2" HorizontalAlignment="Left" BorderBrush="{StaticResource PhoneAccentBrush}" >
-                <Image Name="Picture" Source="{Binding Path=large_icon}" Height="85" Width="85" HorizontalAlignment="Left" />
-            </Border>
-
-            <TextBlock Text="description" Margin="12,12,0,0"/>
-            <ListBox ItemsSource="{Binding Path=short_description}" Height="60"  Margin="36,0,0,0">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding Path=Kind, Mode=OneWay}" />
-                            <TextBlock Grid.Column="1" Text=":  " />
-                            <TextBlock Grid.Column="2" Text="{Binding Path=PhoneNumber, Mode=OneWay}" />
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-            <!--<TextBlock Text="email addresses" Margin="12,12,0,0" />
-            <ListBox ItemsSource="{Binding Path=EmailAddresses}" Height="60"  Margin="36,0,0,0">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding Path=Kind, Mode=OneWay}" />
-                            <TextBlock Grid.Column="1" Text=":  " />
-                            <TextBlock Grid.Column="2" Text="{Binding Path=EmailAddress, Mode=OneWay}" />
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-            <TextBlock Text="web sites" Margin="12,12,0,0" />
-            <ListBox ItemsSource="{Binding Path=Websites}" Height="60"  Margin="36,0,0,0" />
-
-            <TextBlock Text="company information" Margin="12,12,0,0" />
-            <ListBox ItemsSource="{Binding Path=Companies}" Height="60"  Margin="36,0,0,0">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding Path=CompanyName, Mode=OneWay}" />
-                            <TextBlock Grid.Column="1" Text=":  " />
-                            <TextBlock Grid.Column="2" Text="{Binding Path=JobTitle, Mode=OneWay}" />
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-            <TextBlock Text="accounts" Margin="12,12,0,0" />
-            <ListBox ItemsSource="{Binding Path=Accounts}" Height="60" Margin="36,0,0,0">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding Path=Kind, Mode=OneWay}" />
-                            <TextBlock Grid.Column="1" Text=":  " />
-                            <TextBlock Grid.Column="2" Text="{Binding Path=Name, Mode=OneWay}" />
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>-->
+        <StackPanel  Grid.Row="1" Margin="12,0,12,0">
+            <Grid  Margin="12,0,12,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=instructor, Mode=OneWay}" Foreground="{StaticResource PhoneAccentBrush}" FontSize="{StaticResource PhoneFontSizeExtraLarge}" />
+                <Image Grid.Row="1"  Grid.Column="0" Name="Picture" Source="{Binding Path=large_icon}" Height="200" Width="200" HorizontalAlignment="Left" />
+                <ScrollViewer Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="2" Height="Auto" Width="Auto">
+                    <TextBlock Text="{Binding Path=about_the_course}" TextWrapping="Wrap" />
+                </ScrollViewer>
+            </Grid>
         </StackPanel>
     </Grid>
 </phone:PhoneApplicationPage>
