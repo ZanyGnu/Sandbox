@@ -42,7 +42,7 @@
             <TextBlock Text="{Binding Path=Name, Mode=OneWay}" Foreground="{StaticResource PhoneAccentBrush}" FontSize="{StaticResource PhoneFontSizeExtraLarge}" />
 
             <Border BorderThickness="2" HorizontalAlignment="Left" BorderBrush="{StaticResource PhoneAccentBrush}" >
-                <Image Name="Picture" Height="85" Width="85" HorizontalAlignment="Left" />
+                <Image Name="Picture" Source="{Binding Path=large_icon}" Height="85" Width="85" HorizontalAlignment="Left" />
             </Border>
 
             <TextBlock Text="description" Margin="12,12,0,0"/>

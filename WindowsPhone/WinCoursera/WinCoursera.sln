@@ -6,18 +6,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinCourseraLib", "WinCourseraLib\WinCourseraLib.csproj", "{A8059274-E8F3-4CD9-A765-5A8C93D6D94A}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://ajaymartin.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = WinCoursera\\WinCoursera.csproj
-		SccProjectName1 = WinCoursera
-		SccLocalPath1 = WinCoursera
-		SccProjectUniqueName2 = WinCourseraLib\\WinCourseraLib.csproj
-		SccProjectName2 = WinCourseraLib
-		SccLocalPath2 = WinCourseraLib
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
