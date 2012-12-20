@@ -1,13 +1,4 @@
-<!-- 
-    Copyright (c) 2011 Microsoft Corporation.  All rights reserved.
-    Use of this sample source code is subject to the terms of the Microsoft license 
-    agreement under which you licensed this sample source code and is provided AS-IS.
-    If you did not accept the terms of the license agreement, you are not authorized 
-    to use this sample source code.  For the terms of the license, please see the 
-    license agreement between you and Microsoft.
-    
-    To see all Code Samples for Windows Phone, visit http://go.microsoft.com/fwlink/?LinkID=219604
--->
+
 <phone:PhoneApplicationPage 
     x:Class="WinCoursera.CourseDetailsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -16,43 +7,77 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <phone:PhoneApplicationPage.Resources>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,0">
-            <TextBlock x:Name="ApplicationTitle" Text="course details" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="{Binding Path=name, Mode=OneWay}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
-        <!--ContentPanel - place additional content here-->
-        <StackPanel  Grid.Row="1" Margin="12,0,12,0">
-            <Grid  Margin="12,0,12,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Path=instructor, Mode=OneWay}" Foreground="{StaticResource PhoneAccentBrush}" FontSize="{StaticResource PhoneFontSizeExtraLarge}" />
-                <Image Grid.Row="1"  Grid.Column="0" Name="Picture" Source="{Binding Path=large_icon}" Height="200" Width="200" HorizontalAlignment="Left" />
-                <ScrollViewer Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="2" Height="Auto" Width="Auto">
-                    <TextBlock Text="{Binding Path=about_the_course}" TextWrapping="Wrap" />
+    </phone:PhoneApplicationPage.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <controls:Panorama  Title="{Binding Path=name}">
+            <controls:Panorama.TitleTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" FontSize="75" Margin="0,50,0,0" />
+                </DataTemplate>
+            </controls:Panorama.TitleTemplate>
+
+            <!--Assigns a background image to the Panorama control-->
+            <!--<controls:Panorama.Background>
+                <ImageBrush Stretch="None" >
+                    <ImageBrush.ImageSource>
+                        <BitmapImage UriSource="https://s3.amazonaws.com/coursera/topics/modelthinking/large-icon.png">
+                        </BitmapImage>
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
+            </controls:Panorama.Background>-->
+
+            <!--Panorama item one-->
+            <controls:PanoramaItem Header="about">
+                <ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" Width="Auto">
+                    <StackPanel>
+                        <Image Source="{Binding Path=large_icon}" Height="200" Width="200" HorizontalAlignment="Left" />
+                        <TextBlock Text="{Binding Path=instructor}" />
+                        <TextBlock Text="{Binding Path=short_description}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+                    </StackPanel>
                 </ScrollViewer>
-            </Grid>
-        </StackPanel>
-    </Grid>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="details" >
+                <ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" Width="Auto">
+                    <TextBlock Text="{Binding Path=about_the_course}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+                </ScrollViewer>
+            </controls:PanoramaItem>
+            
+            <controls:PanoramaItem Header="background" >
+                <ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" Width="Auto">
+                    <TextBlock Text="{Binding Path=recommended_background}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+                </ScrollViewer>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="faq" >
+                <ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" Width="Auto">
+                    <TextBlock Text="{Binding Path=faq}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+                </ScrollViewer>
+            </controls:PanoramaItem>
+        </controls:Panorama>   
+    </Grid>    
+    
+    <phone:PhoneApplicationPage.ApplicationBar> 
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True"> 
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/> 
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/> 
+            <shell:ApplicationBar.MenuItems> 
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/> 
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/> 
+            </shell:ApplicationBar.MenuItems> 
+        </shell:ApplicationBar> 
+    </phone:PhoneApplicationPage.ApplicationBar>
+    
 </phone:PhoneApplicationPage>

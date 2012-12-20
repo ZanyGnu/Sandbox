@@ -5,6 +5,8 @@ namespace WinCoursera
     using Microsoft.Phone.Controls;
     using System.Windows.Media.Imaging;
     using CourseraLib;
+    using System.Windows.Media;
+    using System.Windows;
 
     public partial class CourseDetailsPage : PhoneApplicationPage
     {
@@ -22,7 +24,10 @@ namespace WinCoursera
                 CourseraAPIHandler.GetCourseInfoAsync(
                     delegate(CourseDetails details)
                     {
-                        this.Dispatcher.BeginInvoke(() =>  this.DataContext = details);
+                        this.Dispatcher.BeginInvoke(() =>  
+                            {
+                                this.DataContext = details;
+                            });
                     },
                     courseId);
             }
