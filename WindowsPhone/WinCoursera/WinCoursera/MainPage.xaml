@@ -22,42 +22,67 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
 
         <!--Pivot Control-->
-        <controls:Pivot Title="Coursera">
+        <controls:Panorama Title="Coursera" >
+            
+            <controls:Panorama.TitleTemplate>                
+                <DataTemplate>
+                   <TextBlock Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" FontSize="80" FontStretch="ExtraExpanded" Margin="0,50,0,0"  Foreground="{StaticResource PhoneAccentBrush}"/>
+                </DataTemplate>
+            </controls:Panorama.TitleTemplate>
+
+            <controls:Panorama.Background>
+                <ImageBrush Stretch="UniformToFill" Opacity="0.4" >
+                    <ImageBrush.ImageSource >
+                        <BitmapImage  UriSource="http://www.wallpaperhere.com/thumbnails/preview/20110626/Stanford-University-in-California-1600-1200.jpg">
+                        </BitmapImage>
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
+            </controls:Panorama.Background>
 
             <!--Pivot item one-->
-            <controls:PivotItem Header="courses" x:Name="CoursesPivotItem" Loaded="CoursesPivotItem_Loaded" >
-                <ListBox Name="CourseResultsData" ItemsSource="{Binding}" Tap="CourseResultsData_Tap" Height="600" Margin="24,0,0,0" LayoutUpdated="CourseResultsData_LayoutUpdated" >
+            <controls:PanoramaItem Header="courses" x:Name="CoursesPivotItem" Loaded="CoursesPivotItem_Loaded" >
+                <ListBox Name="CourseResultsData" ItemsSource="{Binding}" Tap="CourseResultsData_Tap" Height="600" Margin="10,0,0,0" LayoutUpdated="CourseResultsData_LayoutUpdated" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" >
-                                <Border BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="{StaticResource PhoneAccentBrush}" >
-                                    <Image Source="{Binding Path=large_icon}" Width="54" Height="54" Stretch="Fill"  />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Row="0" Grid.Column="0" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{StaticResource PhoneAccentBrush}" Margin="0,15,0,0" >
+                                    <Image Source="{Binding Path=large_icon}" Width="70" Stretch="Uniform"/>
                                 </Border>
-                                <TextBlock Name="CourseResults" Text="{Binding Path=name, Mode=OneWay}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="18,8,0,0" />
-                            </StackPanel>
+                                <StackPanel Grid.Row="0" Grid.Column="1"  >
+                                    <TextBlock Name="CourseResults" Text="{Binding Path=name, Mode=OneWay}" VerticalAlignment="Top" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="10,2,0,0" TextWrapping="Wrap" />
+                                    <TextBlock Text="{Binding Path=instructor, Mode=OneWay}" VerticalAlignment="Top" FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="AntiqueWhite" FontWeight="SemiBold" Margin="10,0,0,0" />
+                                    <TextBlock Name="CourseDescription" Text="{Binding Path=short_description, Mode=OneWay}" VerticalAlignment="Top" FontSize="{StaticResource PhoneFontSizeSmall}" Margin="10,0,0,0" Visibility="Collapsed" Tap="CourseDescription_Tap" />
+                                </StackPanel>
+                            </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-            </controls:PivotItem>
+            </controls:PanoramaItem>
 
             <!--Pivot item two-->
-            <controls:PivotItem x:Name="UniversitiesPivotItem" Header="universities" Loaded="UniversitiesPivotItem_Loaded">
+            <controls:PanoramaItem x:Name="UniversitiesPivotItem" Header="universities" Loaded="UniversitiesPivotItem_Loaded">
                 <ListBox x:Name="UniversityResultsData" ItemsSource="{Binding}" Tap="UniversityResultsData_Tap" Height="600" VerticalAlignment="Stretch" Margin="24,0,0,0" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" >
+                            <StackPanel Orientation="Horizontal">
                                 <Border BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="{StaticResource PhoneAccentBrush}" >
-                                    <Image Source="{Binding Path=logo}" Width="54" Height="54" Stretch="Fill"  />
+                                    <StackPanel Width="54" Height="54" >
+                                        <Image Source="{Binding Path=logo}"  Width="54" Height="54" Stretch="Uniform"  Margin="2,2,2,0" />
+                                    </StackPanel>
                                 </Border>
                                 <TextBlock Name="UniversityResults" Text="{Binding Path=name, Mode=OneWay}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="18,8,0,0" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-            </controls:PivotItem>
+            </controls:PanoramaItem>
 
             <!--Pivot item three-->
-            <controls:PivotItem Header="categories">
+            <controls:PanoramaItem Header="favorites">
                 <StackPanel Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
 
                     <TextBlock Text="appointments between" Foreground="{StaticResource PhoneAccentBrush}" />
@@ -86,9 +111,9 @@
 
                     </ListBox>
                 </StackPanel>
-            </controls:PivotItem>
+            </controls:PanoramaItem>
 
-        </controls:Pivot>
+        </controls:Panorama>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>

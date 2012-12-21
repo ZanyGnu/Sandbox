@@ -28,9 +28,9 @@
     <Tokens>
       <PrimaryToken TokenID="WinCourseraToken" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsResource="false" IsRelative="true">Assets/Images/Background.png</SmallImageURI>
+          <SmallImageURI IsResource="false" IsRelative="true">Assets/Images/CourseraLogo.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsResource="false" IsRelative="true">Assets/Images/Background.png</BackgroundImageURI>
+          <BackgroundImageURI IsResource="false" IsRelative="true">Assets/Images/CourseraLogo.png</BackgroundImageURI>
           <Title>WinCoursera</Title>
           <BackContent></BackContent>
           <BackBackgroundImageURI></BackBackgroundImageURI>

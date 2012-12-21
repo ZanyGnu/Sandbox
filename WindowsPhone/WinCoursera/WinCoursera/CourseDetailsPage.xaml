@@ -32,7 +32,7 @@
             <!--<controls:Panorama.Background>
                 <ImageBrush Stretch="None" >
                     <ImageBrush.ImageSource>
-                        <BitmapImage UriSource="https://s3.amazonaws.com/coursera/topics/modelthinking/large-icon.png">
+                        <BitmapImage UriSource="http://www.wallpaperhere.com/thumbnails/preview/20110626/Stanford-University-in-California-1600-1200.jpg">
                         </BitmapImage>
                     </ImageBrush.ImageSource>
                 </ImageBrush>

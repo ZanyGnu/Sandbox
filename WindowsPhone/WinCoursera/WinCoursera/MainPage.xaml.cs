@@ -140,5 +140,16 @@ namespace WinCoursera
         {
             
         }
+
+        private void CourseDescription_Tap(object sender, GestureEventArgs e)
+        {
+            CourseDetails course = ((sender as ListBox).SelectedValue as CourseDetails);
+
+            NavigationService.Navigate(
+                new Uri(String.Format(
+                    "/CourseDetailsPage.xaml?topic-id={0}",
+                    course.short_name),
+                UriKind.Relative));
+        }
     }
 }
