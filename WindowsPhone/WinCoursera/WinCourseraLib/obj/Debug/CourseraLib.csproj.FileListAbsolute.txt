@@ -1,4 +1,0 @@
-C:\Users\amani\Desktop\Sandbox\WindowsPhone\Contacts and Calendar\C#\CourseraLib\Bin\Debug\CourseraLib.dll
-C:\Users\amani\Desktop\Sandbox\WindowsPhone\Contacts and Calendar\C#\CourseraLib\Bin\Debug\CourseraLib.pdb
-C:\Users\amani\Desktop\Sandbox\WindowsPhone\Contacts and Calendar\C#\CourseraLib\obj\Debug\CourseraLib.dll
-C:\Users\amani\Desktop\Sandbox\WindowsPhone\Contacts and Calendar\C#\CourseraLib\obj\Debug\CourseraLib.pdb
