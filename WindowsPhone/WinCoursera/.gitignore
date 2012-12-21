@@ -1,0 +1,6 @@
+WinCourseraLib\Bin\*
+WinCourseraLib\obj\*
+WinCoursera\Bin\*
+WinCoursera\obj\*
+*.csproj.user
+*~
