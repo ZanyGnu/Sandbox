@@ -1,4 +1,4 @@
-
+﻿
 <phone:PhoneApplicationPage 
     x:Class="WinCoursera.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -15,7 +15,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait"  Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -41,7 +41,7 @@
 
             <!--Pivot item one-->
             <controls:PanoramaItem Header="courses" x:Name="CoursesPivotItem" Loaded="CoursesPivotItem_Loaded" >
-                <ListBox Name="CourseResultsData" ItemsSource="{Binding}" Tap="CourseResultsData_Tap" Height="600" Margin="10,0,0,0" LayoutUpdated="CourseResultsData_LayoutUpdated" >
+                <ListBox Name="CourseResultsData" ItemsSource="{Binding}" Tap="CourseResultsData_Tap" Margin="10,0,0,0" LayoutUpdated="CourseResultsData_LayoutUpdated" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -65,7 +65,7 @@
 
             <!--Pivot item two-->
             <controls:PanoramaItem x:Name="UniversitiesPivotItem" Header="universities" Loaded="UniversitiesPivotItem_Loaded">
-                <ListBox x:Name="UniversityResultsData" ItemsSource="{Binding}" Tap="UniversityResultsData_Tap" Height="600" VerticalAlignment="Stretch" Margin="24,0,0,0" >
+                <ListBox x:Name="UniversityResultsData" ItemsSource="{Binding}" Tap="UniversityResultsData_Tap" VerticalAlignment="Stretch" Margin="24,0,0,0" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
