@@ -11,14 +11,19 @@ namespace CourseraLib
     {
         public delegate void HandleResults<T>(T courses);
         
-        public static void GetAllCoursesAsync<T>(HandleResults<T> handleResults) where T : class, new()
+        public static void GetAllCoursesAsync(HandleResults<List<CourseDetails>> handleResults)
         {
-            InvokeApiAsync<T>(handleResults, ApiEndpoints.CourseList);
+            InvokeApiAsync<List<CourseDetails>>(handleResults, ApiEndpoints.CourseList);
         }
 
-        public static void GetCourseInfoAsync<T>(HandleResults<T> handleResults, string courseId) where T:class, new ()
+        public static void GetCourseInfoAsync(HandleResults<CourseDetails> handleResults, string courseId)
         {
-            InvokeApiAsync<T>(handleResults, ApiEndpoints.CourseInfo + courseId);
+            InvokeApiAsync<CourseDetails>(handleResults, ApiEndpoints.CourseInfo + courseId);
+        }
+
+        public static void GetAllUniversitiesAsync(HandleResults<List<UniversityDetails>> handleResults) 
+        {
+            InvokeApiAsync<List<UniversityDetails>>(handleResults, ApiEndpoints.UniversityList);
         }
 
         private static void InvokeApiAsync<T>(HandleResults<T> handleResults, string endpointUri) where T:class, new ()

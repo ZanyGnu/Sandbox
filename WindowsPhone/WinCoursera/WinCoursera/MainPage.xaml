@@ -1,13 +1,4 @@
-<!-- 
-    Copyright (c) 2011 Microsoft Corporation.  All rights reserved.
-    Use of this sample source code is subject to the terms of the Microsoft license 
-    agreement under which you licensed this sample source code and is provided AS-IS.
-    If you did not accept the terms of the license agreement, you are not authorized 
-    to use this sample source code.  For the terms of the license, please see the 
-    license agreement between you and Microsoft.
-    
-    To see all Code Samples for Windows Phone, visit http://go.microsoft.com/fwlink/?LinkID=219604
--->
+
 <phone:PhoneApplicationPage 
     x:Class="WinCoursera.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -27,25 +18,6 @@
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
-    <!--<phone:PhoneApplicationPage.Resources>
-
-        <DataTemplate x:Key="AccountTemplate">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="{Binding Path=Name, Mode=OneWay}" />
-                <TextBlock Grid.Column="1" Text=" account: " />
-                <TextBlock Grid.Column="2" Text="{Binding Path=Kind, Mode=OneWay}" />
-            </Grid>
-        </DataTemplate>
-
-        <MyApp:CoursePictureConverter x:Key="CoursePictureConverter" />
-
-    </phone:PhoneApplicationPage.Resources>-->
-
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
 
@@ -53,68 +25,39 @@
         <controls:Pivot Title="Coursera">
 
             <!--Pivot item one-->
-            <controls:PivotItem Header="courses">
-                <StackPanel Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-
-                        <TextBox Grid.Row="0" Grid.ColumnSpan="1" Name="CourseFilterString" />
-                        <Button Grid.Row="0" Grid.Column="1" Content="search" Click="SearchCourses_Click" />
-                    </Grid>
-
-                    <TextBlock Name="CourseResultsLabel" Text="" TextWrapping="Wrap" Margin="0,0,0,0" />
-
-                    <ListBox Name="CourseResultsData" ItemsSource="{Binding}" Tap="CourseResultsData_Tap" Height="500" Margin="24,0,0,0" >
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" >
-                                    <Border BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="{StaticResource PhoneAccentBrush}" >
-                                        <!-- <Image Source="{Binding Converter={StaticResource CoursePictureConverter}}" Width="48" Height="48" Stretch="Fill"  /> -->
-                                        <Image Source="{Binding Path=large_icon}" Width="54" Height="54" Stretch="Fill"  />
-                                    </Border>
-                                    <TextBlock Name="CourseResults" Text="{Binding Path=name, Mode=OneWay}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="18,8,0,0" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </StackPanel>
+            <controls:PivotItem Header="courses" x:Name="CoursesPivotItem" Loaded="CoursesPivotItem_Loaded" >
+                <ListBox Name="CourseResultsData" ItemsSource="{Binding}" Tap="CourseResultsData_Tap" Height="600" Margin="24,0,0,0" LayoutUpdated="CourseResultsData_LayoutUpdated" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" >
+                                <Border BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="{StaticResource PhoneAccentBrush}" >
+                                    <Image Source="{Binding Path=large_icon}" Width="54" Height="54" Stretch="Fill"  />
+                                </Border>
+                                <TextBlock Name="CourseResults" Text="{Binding Path=name, Mode=OneWay}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="18,8,0,0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </controls:PivotItem>
-
 
             <!--Pivot item two-->
-            <controls:PivotItem Header="universities">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <StackPanel Grid.Row="0" >
-
-                        <TextBlock Text="Course accounts" Foreground="{StaticResource PhoneAccentBrush}" Style="{StaticResource PhoneTextLargeStyle}" />
-                        
-                    </StackPanel>
-
-                    <StackPanel Grid.Row="1" >
-
-                        <TextBlock Text="appointment accounts" Foreground="{StaticResource PhoneAccentBrush}" Style="{StaticResource PhoneTextLargeStyle}" />
-                        
-                    </StackPanel>
-                </Grid>
+            <controls:PivotItem x:Name="UniversitiesPivotItem" Header="universities" Loaded="UniversitiesPivotItem_Loaded">
+                <ListBox x:Name="UniversityResultsData" ItemsSource="{Binding}" Tap="UniversityResultsData_Tap" Height="600" VerticalAlignment="Stretch" Margin="24,0,0,0" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" >
+                                <Border BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="{StaticResource PhoneAccentBrush}" >
+                                    <Image Source="{Binding Path=logo}" Width="54" Height="54" Stretch="Fill"  />
+                                </Border>
+                                <TextBlock Name="UniversityResults" Text="{Binding Path=name, Mode=OneWay}" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="18,8,0,0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </controls:PivotItem>
 
-
             <!--Pivot item three-->
-            <controls:PivotItem Header="appointments">
+            <controls:PivotItem Header="categories">
                 <StackPanel Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
 
                     <TextBlock Text="appointments between" Foreground="{StaticResource PhoneAccentBrush}" />
@@ -147,4 +90,12 @@
 
         </controls:Pivot>
     </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/refresh.png" Text="Refresh" x:Name="RefreshAppBarButton" Click="RefreshAppBarButton_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/feature.search.png" Text="Search" x:Name="SearchAppBarButton" Click="SearchAppBarButton_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
 </phone:PhoneApplicationPage>

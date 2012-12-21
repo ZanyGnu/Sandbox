@@ -15,8 +15,6 @@ C:\Users\amani\Desktop\Sandbox\WindowsPhone\WinCoursera\WinCoursera\obj\Debug\Wi
 C:\Users\amani\Desktop\Sandbox\WindowsPhone\WinCoursera\WinCoursera\obj\Debug\WinCoursera.dll
 C:\Users\amani\Desktop\Sandbox\WindowsPhone\WinCoursera\WinCoursera\obj\Debug\WinCoursera.pdb
 C:\Users\amani\Desktop\Sandbox\WindowsPhone\WinCoursera\WinCoursera\obj\Debug\XapCacheFile.xml
-C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\Bin\Debug\ApplicationIcon.png
-C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\Bin\Debug\Background.png
 C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\Bin\Debug\WinCoursera.dll
 C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\Bin\Debug\WinCoursera.pdb
 C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\Bin\Debug\AppManifest.xaml
@@ -32,3 +30,6 @@ C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\obj\
 C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\obj\Debug\WinCoursera.dll
 C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\obj\Debug\WinCoursera.pdb
 C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\obj\Debug\XapCacheFile.xml
+C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\Bin\Debug\Assets\Images\ApplicationIcon.png
+C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\Bin\Debug\Assets\Images\Background.png
+C:\Users\amani\Desktop\gitroot\Sandbox\WindowsPhone\WinCoursera\WinCoursera\Bin\Debug\Assets\Images\SplashScreenImage.jpg

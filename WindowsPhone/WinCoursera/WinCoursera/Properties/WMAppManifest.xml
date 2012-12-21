@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{30BCD617-FCF0-48F7-A9F5-B05978FE7C27}" Title="Coursera" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="ZanyGnu" Description="Sample description" Publisher="ZanyGnu" PublisherID="{b047fb8b-b7cf-4ba9-874c-4be8ccd4adf7}">
-    <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
+  <App xmlns="" ProductID="{30BCD617-FCF0-48F7-A9F5-B05978FE7C27}" Title="Coursera" RuntimeType="Silverlight" Version="0.0.0.1" Genre="apps.normal" Author="ZanyGnu" Description="Sample description" Publisher="ZanyGnu" PublisherID="{b047fb8b-b7cf-4ba9-874c-4be8ccd4adf7}">
+    <IconPath IsRelative="true" IsResource="false">Assets/Images/ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_GAMERSERVICES" />
       <Capability Name="ID_CAP_IDENTITY_DEVICE" />
@@ -28,9 +28,9 @@
     <Tokens>
       <PrimaryToken TokenID="WinCourseraToken" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsResource="false" IsRelative="true">Background.png</SmallImageURI>
+          <SmallImageURI IsResource="false" IsRelative="true">Assets/Images/Background.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsResource="false" IsRelative="true">Background.png</BackgroundImageURI>
+          <BackgroundImageURI IsResource="false" IsRelative="true">Assets/Images/Background.png</BackgroundImageURI>
           <Title>WinCoursera</Title>
           <BackContent></BackContent>
           <BackBackgroundImageURI></BackBackgroundImageURI>
