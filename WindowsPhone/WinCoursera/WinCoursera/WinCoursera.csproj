@@ -106,8 +106,19 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\HtmlToTextConverter.cs" />
+    <Compile Include="Converters\SyndicationItemTextToTrimmedTextConverter.cs" />
+    <Compile Include="MainPage.Blog.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.Universities.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CourseDetailsPage.xaml.cs">
       <DependentUpon>CourseDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.Courses.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -151,6 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Syndication">
+      <HintPath>$(ProgramFiles)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.ServiceModel.Syndication.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WinCourseraLib\WinCourseraLib.csproj">

@@ -10,6 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 
     xmlns:MyApp="clr-namespace:WinCoursera"
+    xmlns:converters="clr-namespace:WinCoursera.Converters"
     
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -19,18 +20,13 @@
     shell:SystemTray.IsVisible="True">
 
     <phone:PhoneApplicationPage.Resources>
-
+        
+        <converters:HtmlToTextConverter x:Key="HtmlToTextConverter"/>
+        <converters:SyndicationItemTextToTrimmedTextConverter x:Key="SyndicationItemTextToTrimmedTextConverter"/>
+        
         <DataTemplate x:Key="CourseItemTemplate">
-            <Border BorderThickness="1" CornerRadius="2" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0.8" Margin="0,0,0,4" Padding="2,1,3,1" Background="#FF3A3A3A">
+            <Border BorderThickness="1" CornerRadius="2" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0.995" Margin="0,0,0,4" Padding="2,1,3,1">
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" d:DesignWidth="277" Margin="0">
-                    <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="Black" Offset="1"/>
-                            <GradientStop Color="#FF3E3E3E" Offset="0.991"/>
-                            <GradientStop Color="#FF252525" Offset="0.793"/>
-                        </LinearGradientBrush>
-                    </Grid.Background>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70" />
                         <ColumnDefinition Width="*" />
@@ -66,21 +62,20 @@
             
             <controls:Panorama.TitleTemplate>                
                 <DataTemplate>
-                   <TextBlock Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" FontSize="80" FontStretch="ExtraExpanded" Margin="0,50,0,0"  Foreground="{StaticResource PhoneAccentBrush}"/>
+                   <TextBlock Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" FontSize="80" FontStretch="ExtraExpanded" Margin="0,50,0,0"  Foreground="WhiteSmoke"/>
                 </DataTemplate>
             </controls:Panorama.TitleTemplate>
 
             <controls:Panorama.Background>
-                <ImageBrush Stretch="UniformToFill" Opacity="0.4" >
-                    <ImageBrush.ImageSource >
-                        <BitmapImage  UriSource="http://www.wallpaperhere.com/thumbnails/preview/20110626/Stanford-University-in-California-1600-1200.jpg">
-                        </BitmapImage>
-                    </ImageBrush.ImageSource>
-                </ImageBrush>
+            	<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF8B8B8B" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF323232" Offset="0.254"/>
+            	</LinearGradientBrush>
             </controls:Panorama.Background>
 
             <!--Pivot item one-->
-            <controls:PanoramaItem Header="courses" x:Name="CoursesPivotItem" Loaded="CoursesPivotItem_Loaded" >
+            <controls:PanoramaItem Header="courses" x:Name="CoursesPanoramaItem" Loaded="CoursesPanoromaItem_Loaded" >
                 <ListBox Name="CourseResultsData" ItemsSource="{Binding}" Tap="CourseResultsData_Tap" Margin="0,0,0,0" 
                          ItemTemplate="{StaticResource CourseItemTemplate}" 
                          ItemContainerStyle="{StaticResource ListboxStretchStyle}" 
@@ -89,7 +84,7 @@
             </controls:PanoramaItem>
 
             <!--Pivot item two-->
-            <controls:PanoramaItem x:Name="UniversitiesPivotItem" Header="universities" Loaded="UniversitiesPivotItem_Loaded">
+            <controls:PanoramaItem x:Name="UniversitiesPanoromaItem" Header="universities" Loaded="UniversitiesPanormaItem_Loaded">
                 <ListBox x:Name="UniversityResultsData" ItemsSource="{Binding}" Tap="UniversityResultsData_Tap" VerticalAlignment="Stretch" Margin="24,0,0,0" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -106,8 +101,24 @@
                 </ListBox>
             </controls:PanoramaItem>
 
-            <!--Pivot item three-->
-            <controls:PanoramaItem Header="favorites">
+            <!--Pivot item four -->
+            <controls:PanoramaItem Header="blog" x:Name="BlogPanoromaItem" Loaded="BlogPanoromaItem_Loaded">
+                <ListBox Name="feedListBox" Height="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="feedListBox_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Top">
+                                <TextBlock TextDecorations="Underline" FontSize="24" Name="feedTitle" TextWrapping="Wrap" Margin="12,0,0,0" HorizontalAlignment="Left" Foreground="{StaticResource PhoneAccentBrush}" Text="{Binding Title.Text, Converter={StaticResource HtmlToTextConverter}}" />
+                                <TextBlock Name="feedSummary" TextWrapping="Wrap" Margin="12,0,0,0" Text="{Binding Summary.Text, Converter={StaticResource SyndicationItemTextToTrimmedTextConverter}}" />
+                                <TextBlock Name="feedPubDate" Foreground="{StaticResource PhoneSubtleBrush}" Margin="12,0,0,10" Text="{Binding PublishDate.DateTime}" />
+                                <Line Width="Auto" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PanoramaItem>
+            
+            <!--Pivot item four -->
+            <controls:PanoramaItem Header="favorites" x:Name="FavoritesPanoromaItem">
                 <StackPanel Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
 
                     <TextBlock Text="appointments between" Foreground="{StaticResource PhoneAccentBrush}" />

@@ -1,4 +1,4 @@
-
+﻿
 <phone:PhoneApplicationPage 
     x:Class="WinCoursera.CourseDetailsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:converters="clr-namespace:WinCoursera.Converters"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -16,7 +17,7 @@
     shell:SystemTray.IsVisible="True">
 
     <phone:PhoneApplicationPage.Resources>
-
+        <converters:HtmlToTextConverter x:Key="HtmlToTextConverter"/>
     </phone:PhoneApplicationPage.Resources>
     
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -44,26 +45,26 @@
                     <StackPanel>
                         <Image Source="{Binding Path=large_icon}" Height="200" Width="200" HorizontalAlignment="Left" />
                         <TextBlock Text="{Binding Path=instructor}" />
-                        <TextBlock Text="{Binding Path=short_description}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+                        <TextBlock Text="{Binding Path=short_description, Converter={StaticResource HtmlToTextConverter}}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
                     </StackPanel>
                 </ScrollViewer>
             </controls:PanoramaItem>
 
             <controls:PanoramaItem Header="details" >
                 <ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" Width="Auto">
-                    <TextBlock Text="{Binding Path=about_the_course}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+                    <TextBlock Text="{Binding Path=about_the_course, Converter={StaticResource HtmlToTextConverter}}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
                 </ScrollViewer>
             </controls:PanoramaItem>
             
             <controls:PanoramaItem Header="background" >
                 <ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" Width="Auto">
-                    <TextBlock Text="{Binding Path=recommended_background}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+                    <TextBlock Text="{Binding Path=recommended_background, Converter={StaticResource HtmlToTextConverter}}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
                 </ScrollViewer>
             </controls:PanoramaItem>
 
             <controls:PanoramaItem Header="faq" >
                 <ScrollViewer VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto" Width="Auto">
-                    <TextBlock Text="{Binding Path=faq}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+                    <TextBlock Text="{Binding Path=faq, Converter={StaticResource HtmlToTextConverter}}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
                 </ScrollViewer>
             </controls:PanoramaItem>
         </controls:Panorama>   
