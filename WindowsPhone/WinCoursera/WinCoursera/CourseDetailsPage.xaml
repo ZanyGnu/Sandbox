@@ -71,7 +71,7 @@
     
     <phone:PhoneApplicationPage.ApplicationBar> 
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True"> 
-            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/favs.addto.png" Text="Add to Favorites"/> 
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/favs.addto.png" Text="Add to Favorites"/>
             <shell:ApplicationBar.MenuItems> 
                 <shell:ApplicationBarMenuItem Text="MenuItem 1"/> 
                 <shell:ApplicationBarMenuItem Text="MenuItem 2"/> 

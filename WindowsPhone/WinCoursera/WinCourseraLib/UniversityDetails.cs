@@ -1,15 +1,19 @@
 ﻿
 namespace CourseraLib
 {
+    using System.Data.Linq.Mapping;
     using System.Runtime.Serialization;
 
     [DataContract]
+    [Table]
     public class UniversityDetails
     {
         [DataMember]
+        [Column]
         public string id { get; set; }
 
         [DataMember]
+        [Column]
         public string name { get; set; }
 
         [DataMember]

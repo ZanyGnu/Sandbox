@@ -90,6 +90,7 @@
     <Compile Include="ApiEndpoints.cs" />
     <Compile Include="CourseDetails.cs" />
     <Compile Include="CourseraAPIHandler.cs" />
+    <Compile Include="CourseraDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UniversityDetails.cs" />
   </ItemGroup>
